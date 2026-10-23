@@ -2,26 +2,21 @@
 
 view: pdt {
   derived_table: {
-    sql:
-    SELECT
-    city_id,
-    city_name
-    FROM
-   bq_samplesales;;
-    #datagroup_trigger: pdt_test_project_default_datagroup
+       persist_for: "5 minutes"
+
+    explore_source: bq_samplesales {
+      column: city {
+        field: bq_samplesales.city
+      }
+
+    }
 
   }
 
-  dimension: city_id {
-    type: number
-    primary_key: yes
-    sql: ${TABLE}.city_id ;;
-  }
-
-  dimension: city_name {
+  dimension: city {
     type: string
-    sql: ${TABLE}.city_name ;;
-
+    primary_key: yes
+    sql: ${TABLE}.city ;;
   }
 
  }
