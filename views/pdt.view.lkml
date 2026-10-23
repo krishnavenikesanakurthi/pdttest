@@ -1,6 +1,4 @@
-explore: pdt {
 
-}
 
 view: pdt {
   derived_table: {
