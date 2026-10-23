@@ -2,7 +2,8 @@
 
 view: pdt {
   derived_table: {
-       persist_for: "5 minutes"
+    interval_trigger: "5 minutes"
+
 
     explore_source: bq_samplesales {
       column: city {
